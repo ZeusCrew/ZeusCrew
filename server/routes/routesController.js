@@ -5,8 +5,8 @@ var findRoute = Q.nbind(Route.findOne, Route);
 var createRoute = Q.nbind(Route.create, Route);
 
 module.exports = {
-  saveRoute: function (/*ROUTEBABY*/) {
-    var route; // = ROUTEBABY;
+  saveRoute: function (journey) {
+    var route = journey;
 
     findRoute({route: route})
       .then(function(route){

@@ -1,9 +1,16 @@
 var mongoose = require('mongoose');
 
 var JourneySchema = new mongoose.Schema({
-  journey: {
+  startPoint: {
     type: String,
     required: true
+  },
+  endPoint: {
+    type: String,
+    required: true
+  },
+  hash: {
+    type: String
   }
 });
 

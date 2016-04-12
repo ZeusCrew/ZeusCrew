@@ -60,7 +60,7 @@
           <div class="info save-routes" ng-repeat="route in savedRoutes">
             <p class="route-start">{{ route.startPoint }}</p>
             <p class="route-end">{{ route.endPoint }}</p>
-            <p ng-click="viewSavedRoute(route.hash)">View this Route</p>
+            <p class="saved-route-link" ng-click="viewSavedRoute(route.hash)">View this Route</p>
             <div class="stop-count">{{ route.wayPoints.length }}</div>
           </div>
         </div>

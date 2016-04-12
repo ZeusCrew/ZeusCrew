@@ -23,7 +23,8 @@ angular.module('roadtrippin.mapsFactory', [])
         method: 'GET',
         url: '/saveJourney'
       }).then(function (res){
-        deferred.resolve (res);
+        console.log(res);
+        deferred.resolve (res.data);
       }).catch(function (err) {
         deferred.reject (err);
       });

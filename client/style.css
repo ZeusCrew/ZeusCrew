@@ -24,8 +24,9 @@ h3{width: 390px; font:1.5em "Fugaz One"; color: #FFF; padding: 10px 0; backgroun
 #savedRoutes {margin: 10px 0 0 0}
 i {padding: 0 5px 0 10px}
 .info{padding: 10px 0 10px 0; border-bottom: 1px solid black}
-.stop-name {font-size:1.3em}
-#info button {margin: 10px 0 0 0}
+.stop-name {font-size:1.3em;}
+#info button {margin: 10px 0 0 0;}
+.saved-route-link {color: orange;}
 
 /*Map*/
 #map {

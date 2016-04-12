@@ -34,7 +34,6 @@ module.exports = {
   getAll: function (req, res, next) {
   Journey.find({})
     .then(function (data) {
-      console.log('line 37', data);
       res.status(200).send(data);
     })
     .catch(function(error) {

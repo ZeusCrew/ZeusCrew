@@ -44,8 +44,8 @@
       <div id="right">
         <div id="info">
           <h3 class="infoHeader"><i class="fa fa-caret-right fa-rotate-90" aria-hidden="true"></i>Your Stops</h3>
-          <div class="info stop-info" ng-repeat="place in places">
-            <p class="stop-name">{{place.name}}</p>
+          <div class="info stop-info" ng-repeat="place in places | orderBy:'position'">
+            <p class="stop-name">{{getLetter(place.position)}}. {{place.name}}</p>
             <p class="stop-address">{{place.address[0]}}</p>
             <p class="stop-address">{{place.address[1]}}, {{place.address[2]}}</p>
             <p class="stop-address">{{place.address[3]}}</p>

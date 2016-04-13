@@ -17,7 +17,7 @@ angular.module('roadtrippin.maps', ['gservice'])
             placesCopy.push(JSON.parse(JSON.stringify(places[i])));
           }
           placesCopy.forEach(function(place) { //split address for easier formatting
-            place.address = place.address.split(', ');
+            place.location = place.location.split(', ');
             $scope.places.push(place);
           });
         });

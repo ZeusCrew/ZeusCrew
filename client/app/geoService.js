@@ -77,7 +77,7 @@ angular.module('gservice', [])
         var stops = []; //format stops for Google request
         waypoints.forEach(function (w) {
           stops.push({
-            location: w.address,
+            location: w.location,
             stopover: true
           });
         });
@@ -141,7 +141,7 @@ angular.module('gservice', [])
           placesService.textSearch(placeRequests[i], function (res, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
               var place = {
-                address: res[0].formatted_address,
+                location: res[0].formatted_address,
                 name: res[0].name
               };
               placesToStop.push(place);

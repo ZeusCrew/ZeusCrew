@@ -8,7 +8,7 @@ angular.module('roadtrippin', [
 ])
 
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-  $urlRouterProvider.otherwise('/links');
+  $urlRouterProvider.otherwise('/signin');
 
   $stateProvider
     .state('signin', {
@@ -47,7 +47,7 @@ angular.module('roadtrippin', [
 
 .run(function ($rootScope, $location, authFactory) {
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-    if (toState && toState.authenticate && authFactory.isAuth()) {
+    if (toState && toState.authenticate && !authFactory.isAuth()) {
       $location.path('/signin');
     }
   });

@@ -8,7 +8,7 @@ angular.module('roadtrippin', [
 ])
 
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-  $urlRouterProvider.otherwise('/signin');
+  $urlRouterProvider.otherwise('/homepage');
 
   $stateProvider
     .state('signin', {

@@ -154,7 +154,7 @@ h3 {
 }
 
 .stop-address {
-  line-height: 5px;
+  margin: 0;
 }
 
 .route-start, 

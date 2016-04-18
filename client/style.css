@@ -28,6 +28,18 @@ h1 {
   width: 100%;
 }
 
+.initial-form {
+  margin-bottom: 10px;
+}
+
+.account-signup {
+  float: right;
+}
+
+.account-signin {
+  float: right;
+}
+
 .dropdown-toggle {
   background: rgba(0,0,0,0);
   color: white;
@@ -142,7 +154,7 @@ h3 {
 }
 
 .stop-address {
-  margin: 0;
+  line-height: 5px;
 }
 
 .route-start, 

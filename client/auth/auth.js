@@ -4,32 +4,32 @@ angular.module('roadtrippin.auth', [])
   $scope.user = {};
   
   $scope.signin = function() {
-    authFactory.signin($scope.user)
-      .then(function (token) {
-        if (token) {
-          $window.localStorage.setItem('com.roadtrippin', token);
-          $location.path('/');
-        }
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
+    if (valid) {
+      authFactory.signin($scope.user)
+        .then(function (token) {
+          if (token) {
+            $window.localStorage.setItem('com.roadtrippin', token);
+            $location.path('/');
+          }
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
   };
   
   $scope.signup = function() {
-    authFactory.signup($scope.user)
-      .then(function (token) {
-        if (token) {
-          $window.localStorage.setItem('com.roadtrippin', token);
-          $location.path('/');
-        }
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
-  };
-  
-  $scope.signout = function() {
-    authFactory.signout();
+    if (valid) {
+      authFactory.signup($scope.user)
+        .then(function (token) {
+          if (token) {
+            $window.localStorage.setItem('com.roadtrippin', token);
+            $location.path('/');
+          }
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
   };
 });

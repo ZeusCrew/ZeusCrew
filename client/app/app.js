@@ -45,10 +45,12 @@ angular.module('roadtrippin', [
   return attach;
 })
 
-.run(function ($rootScope, $location, authFactory) {
+.run(function ($rootScope, $location, authFactory, $state) {
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
     if (toState && toState.authenticate && !authFactory.isAuth()) {
-      $location.path('/signin');
+      $location.url('/signin');
+    } else if (toState.url === '/signin' || toState.url === '/signup') {
+      $location.url('/homepage');
     }
   });
 });

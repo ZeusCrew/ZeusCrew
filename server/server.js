@@ -24,9 +24,9 @@ db.once('open', function() {
 
 app.post('/saveJourney', journeyController.saveJourney);
 app.get('/saveJourney', journeyController.getAll);
-
 app.post('/signin', userController.signin);
-app.post('/signup', userController.signup);  
+app.post('/signup', userController.signup);
+app.use(userController.errorHandler);
 
 
 var port = process.env.PORT || 8080;

@@ -12,12 +12,12 @@ module.exports = {
     
     findUser({username: username})
       .then(function(user) {
-        if(!user) {
+        if (!user) {
           next(new Error('User does not exist'));
         } else {
           return user.comparePasswords(password)
             .then(function(foundUser) {
-              if(foundUser) {
+              if (foundUser) {
                 var token = jwt.encode(user, 'route66');
                 res.json({token: token});
               } else {
@@ -37,7 +37,7 @@ module.exports = {
     
     findUser({username: username})
       .then(function(user) {
-        if(user) {
+        if (user) {
           next(new Error('User already exists'));
         } else {
           return createUser({
@@ -58,13 +58,13 @@ module.exports = {
   
   checkAuth: function(req, res, next) {
     var token = req.headers['x-access-token'];
-    if(!token) {
+    if (!token) {
       next(new Error('No token'));
     } else {
       var user = jwt.decode(token, 'route66');
       findUser({username: user.username})
         .then(function(foundUser) {
-          if(foundUser) {
+          if (foundUser) {
             res.send(200);
           } else {
             res.send(401);
@@ -78,7 +78,7 @@ module.exports = {
   
   getUser: function(req, res, next) {
     var token = req.headers['x-access-token'];
-    if(!token) {
+    if (!token) {
       next(new Error('No token'));
     } else {
       // decode token
@@ -87,10 +87,10 @@ module.exports = {
       
       findUser({username: user.username})
         .then(function(foundUser) {
-          if(foundUser) {
+          if (foundUser) {
             res.send({
               username: foundUser.username
-          });
+            });
           } else {
             res.send(401);
           }
@@ -99,5 +99,9 @@ module.exports = {
           next(error);
         });
     }
+  },
+
+  errorHandler: function (error, req, res, next) {
+    res.send(500, {error: error.message});
   }
 };

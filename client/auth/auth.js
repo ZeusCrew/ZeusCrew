@@ -3,7 +3,7 @@ angular.module('roadtrippin.auth', [])
 .controller('authController', function($scope, $window, $location, authFactory) {
   $scope.user = {};
   
-  $scope.signin = function() {
+  $scope.signin = function(valid) {
     if (valid) {
       authFactory.signin($scope.user)
         .then(function (token) {
@@ -18,7 +18,7 @@ angular.module('roadtrippin.auth', [])
     }
   };
   
-  $scope.signup = function() {
+  $scope.signup = function(valid) {
     if (valid) {
       authFactory.signup($scope.user)
         .then(function (token) {

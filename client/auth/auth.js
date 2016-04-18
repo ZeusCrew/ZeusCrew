@@ -6,8 +6,10 @@ angular.module('roadtrippin.auth', [])
   $scope.signin = function() {
     authFactory.signin($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.roadtrippin', token);
-        $location.path('/');
+        if (token) {
+          $window.localStorage.setItem('com.roadtrippin', token);
+          $location.path('/');
+        }
       })
       .catch(function(error) {
         console.error(error);
@@ -17,8 +19,10 @@ angular.module('roadtrippin.auth', [])
   $scope.signup = function() {
     authFactory.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.roadtrippin', token);
-        $location.path('/');
+        if (token) {
+          $window.localStorage.setItem('com.roadtrippin', token);
+          $location.path('/');
+        }
       })
       .catch(function(error) {
         console.error(error);
